@@ -137,21 +137,28 @@ class Demo1 extends Component {
   };
 
   handleSubmit = () => {
+
+    const selectData = this.child.getSelectData();
+    console.log("selectData",selectData);
+    debugger
     this.setState({
       status: false,
+      handData: []
     });
   };
 
 
   render() {
 
-    const { status, handData } = this.state;
+    const { status, handData, rowList } = this.state;
+    console.log('data', rowList);
 
     return (
       <div className="demoPadding">
 
         <Button colors="primary" onClick={this.onShowModal} size="sm">展示</Button>
         <Button colors="primary" onClick={this.onUpdateModal} size="sm">更新</Button>
+
         <AcDisplayModal
           visible={status}
           cancel={this.onCancel}
